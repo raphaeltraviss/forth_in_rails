@@ -1,0 +1,9 @@
+<h1>hi, how are you?</h1>
+
+<%= form_with :remote => true do |f| %>
+  <%= f.text_field :words %>
+  <%= f.submit %>
+<% end %>
+
+<h2>Results:</h2>
+<div id="results"></div>
