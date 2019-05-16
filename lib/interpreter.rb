@@ -14,8 +14,7 @@ module Interpreter
     next_depth = depth + 1
 
     # Each op prints out a line: before each, return and indent.
-    spaces = "  " * depth
-    newline = "\n#{spaces}"
+    newline = "\n" + "  " * depth
 
     case curr_op
     when 'AND'
