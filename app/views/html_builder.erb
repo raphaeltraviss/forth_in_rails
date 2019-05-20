@@ -1,9 +1,23 @@
 <h1>hi, how are you?</h1>
 
-<%= form_with :remote => true do |f| %>
+<%= form_with id: 'input_form' do |f| %>
   <%= f.text_field :words %>
+  <%= f.hidden_field :tokens %>
   <%= f.submit %>
 <% end %>
 
 <h2>Results:</h2>
 <div id="results"></div>
+
+<%= javascript_tag do %>
+  var form = document.getElementById("input_form");
+
+  var input_field = form.elements["words"];
+  var token_field = form.elements["tokens"];
+
+  input_field.onkeyup = function(event) {
+    var words = event.target.value;
+    var tokens = tokenize(words);
+    token_field.value = tokens;
+  }
+<% end %>
